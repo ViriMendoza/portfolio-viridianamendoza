@@ -48,34 +48,36 @@ export default function ProjectCard({
             <div
                 className={clsx(
                     "relative overflow-hidden",
-                    featured ? "aspect-[2.4/1]" : "aspect-video",
+                    featured
+                        ? "aspect-[2.4/1]"
+                        : imageFit === "contain"
+                          ? // Diagrams are roughly square, so give them more height than photos
+                            "aspect-square sm:aspect-[4/3]"
+                          : "aspect-video",
                 )}
             >
-                {imageFit === "contain" ? (
-                    <a
-                        href={image}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Open full size"
-                        className="block h-full px-4 pt-14 pb-4"
-                    >
-                        <img
-                            src={image}
-                            alt={imageAlt}
-                            loading="lazy"
-                            decoding="async"
-                            className="h-full w-full object-contain"
-                        />
-                    </a>
-                ) : (
+                <button
+                    type="button"
+                    onClick={onViewCaseStudy}
+                    aria-label={`View case study: ${title}`}
+                    className={clsx(
+                        "block h-full w-full cursor-pointer",
+                        imageFit === "contain" && "px-3 pt-14 pb-3 sm:px-4",
+                    )}
+                >
                     <img
                         src={image}
                         alt={imageAlt}
                         loading="lazy"
                         decoding="async"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className={clsx(
+                            "w-full",
+                            imageFit === "contain"
+                                ? "h-full object-contain"
+                                : "h-full object-cover transition-transform duration-700 group-hover:scale-105",
+                        )}
                     />
-                )}
+                </button>
 
                 <div className="absolute top-5 left-5 rounded-full bg-card/75 px-3 py-1.5 text-xs tracking-[0.12em] text-primary uppercase backdrop-blur-md">
                     {category}

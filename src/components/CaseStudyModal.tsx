@@ -1,5 +1,4 @@
-import clsx from "clsx";
-import { X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { useEffect, useRef, type ReactNode } from "react";
 import type { Project } from "../types/project";
 import Tag from "./Tag";
@@ -31,10 +30,10 @@ export default function CaseStudyModal({
             onClose={onClose}
             // A click on the dialog itself (not its content) is a click on the backdrop
             onClick={(e) => e.target === e.currentTarget && onClose()}
-            className="m-auto my-12 w-[calc(100%-3rem)] max-w-4xl overflow-hidden rounded-4xl border border-line bg-card text-fg backdrop:bg-black/70 backdrop:backdrop-blur-sm"
+            className="m-auto my-12 w-[calc(100%-1.5rem)] max-w-4xl overflow-hidden rounded-4xl border border-line bg-card text-fg backdrop:bg-black/70 backdrop:backdrop-blur-sm sm:w-[calc(100%-3rem)]"
         >
             {project && (
-                <div className="relative">
+                <div className="relative max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain">
                     <button
                         type="button"
                         onClick={onClose}
@@ -44,16 +43,31 @@ export default function CaseStudyModal({
                         <X size={20} />
                     </button>
 
-                    <img
-                        src={project.image}
-                        alt={project.imageAlt ?? project.title}
-                        className={clsx(
-                            "aspect-16/8 w-full",
-                            project.imageFit === "contain"
-                                ? "object-contain px-6 pt-20 pb-6"
-                                : "object-cover",
-                        )}
-                    />
+                    {project.imageFit === "contain" ? (
+                        // Diagrams are hard to read at this size, so link to the full image
+                        <a
+                            href={project.image}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-3 pt-20 pb-2 sm:px-8"
+                        >
+                            <img
+                                src={project.image}
+                                alt={project.imageAlt ?? project.title}
+                                className="max-h-[75dvh] w-full object-contain"
+                            />
+                            <span className="mt-3 flex items-center justify-center gap-1 text-sm text-primary">
+                                Open full-size diagram
+                                <ArrowUpRight size={16} />
+                            </span>
+                        </a>
+                    ) : (
+                        <img
+                            src={project.image}
+                            alt={project.imageAlt ?? project.title}
+                            className="aspect-16/8 w-full object-cover"
+                        />
+                    )}
 
                     <div className="p-10">
                         <span className="text-sm tracking-wider text-primary uppercase">
