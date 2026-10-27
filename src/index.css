@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* Expose the theme variables as Tailwind colors: text-primary, bg-card, border-line, bg-primary/8… */
+@theme inline {
+    --color-page: var(--bg);
+    --color-card: var(--card);
+    --color-fg: var(--text);
+    --color-muted: var(--text-secondary);
+    --color-line: var(--border);
+    --color-primary: var(--primary);
+    --color-primary-hover: var(--primary-hover);
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky navbar */
+    scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+:root {
+    --bg: #f6f7f9;
+    --card: #ffffff;
+
+    --text: #0f172a;
+    --text-secondary: #475569;
+
+    --border: #d1d5db;
+
+    --primary: #9f1d4f;
+    --primary-hover: #7c173d;
+
+    --spotlight-color: rgba(196, 60, 107, 0.08);
+    --glow-primary: #c43c6b;
+    --glow-secondary: #9f1d4f;
+}
+
+.dark {
+    --bg: #0f172a;
+    --card: #1e293b;
+
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+
+    --border: #334155;
+
+    --primary: #c43c6b;
+    --primary-hover: #db5a86;
+
+    --spotlight-color: rgba(219, 90, 134, 0.2);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}

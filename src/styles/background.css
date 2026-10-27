@@ -1,0 +1,54 @@
+/* Grid */
+.hero-grid {
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.5;
+}
+
+.dark .hero-grid {
+    opacity: 0.25;
+}
+
+/* Noise */
+.noise {
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.08) 1px,
+        transparent 1px
+    );
+    background-size: 12px 12px;
+    opacity: 0.03;
+}
+
+/* Glows */
+.glow {
+    position: absolute;
+    border-radius: 9999px;
+}
+
+.glow-primary {
+    background: radial-gradient(
+        circle,
+        var(--glow-primary) 0%,
+        transparent 70%
+    );
+}
+
+.glow-secondary {
+    background: radial-gradient(
+        circle,
+        var(--glow-secondary) 0%,
+        transparent 70%
+    );
+}
+
+/* Spotlight: --spotlight-x / --spotlight-y are set by BackgroundEffects (hidden until the pointer moves) */
+.spotlight {
+    background: radial-gradient(
+        700px circle at var(--spotlight-x, -100vmax)
+            var(--spotlight-y, -100vmax),
+        var(--spotlight-color),
+        transparent 70%
+    );
+}
