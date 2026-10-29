@@ -5,8 +5,8 @@ import { stats } from "../data/profile";
 
 export default function About() {
     return (
-        <Section id="about" className="py-32">
-            <div className="grid items-center gap-20 lg:grid-cols-2">
+        <Section id="about" className="py-16 md:py-32">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
                 <div>
                     <SectionHeader
                         eyebrow="About"
@@ -38,7 +38,7 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2">
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
                     {stats.map((stat) => (
                         <StatCard key={stat.label} {...stat} />
                     ))}

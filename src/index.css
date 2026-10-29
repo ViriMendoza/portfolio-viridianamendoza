@@ -23,6 +23,60 @@ html {
     }
 }
 
+/* Cards entering the viewport (see utils/revealOnScroll.ts).
+   An animation instead of a transition so it doesn't override the cards' hover transitions,
+   and `transform` instead of `translate` so it doesn't fight Tailwind's hover:-translate-y-* */
+@media (prefers-reduced-motion: no-preference) {
+    [data-reveal]:not([data-revealed]) {
+        opacity: 0;
+    }
+
+    [data-revealed] {
+        animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation-delay: var(--reveal-delay, 0ms);
+    }
+}
+
+/* Hero title: each word rises into place on page load (delays are set inline in Hero.tsx) */
+.hero-word {
+    display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-word {
+        animation: hero-word 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Hero text, buttons and tags follow the title, reusing the cards' entrance */
+    .hero-fade {
+        animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+}
+
+@keyframes hero-word {
+    from {
+        opacity: 0;
+        transform: translateY(0.4em);
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 :root {
     --bg: #f6f7f9;
     --card: #ffffff;

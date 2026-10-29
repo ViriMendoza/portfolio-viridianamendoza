@@ -10,6 +10,7 @@ export interface Project {
     metrics: string[];
     kind: "open-source" | "client" | "personal";
     featured?: boolean;
+    liveUrl?: string;
     // Case study details (shown in CaseStudyModal)
     challenge?: string;
     solution?: string;

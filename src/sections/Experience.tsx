@@ -2,16 +2,17 @@ import Section from "../components/Section";
 import SectionHeader from "../components/SectionHeader";
 import Tag from "../components/Tag";
 import { experience } from "../data/experience";
+import { revealOnScroll } from "../utils/revealOnScroll";
 
 export default function Experience() {
     return (
-        <Section id="experience" className="py-32">
+        <Section id="experience" className="py-16 md:py-32">
             <SectionHeader
                 eyebrow="Experience"
                 title="Where I've built and shipped production interfaces."
             />
 
-            <ol className="mt-16 space-y-12 border-l border-line">
+            <ol className="mt-10 space-y-10 border-l border-line md:mt-16 md:space-y-12">
                 {experience.map(
                     ({
                         role,
@@ -23,6 +24,7 @@ export default function Experience() {
                         technologies,
                     }) => (
                         <li
+                            ref={revealOnScroll}
                             key={`${company}-${period}`}
                             className="relative pl-8 md:pl-12"
                         >

@@ -1,4 +1,5 @@
 import Tag from "./Tag";
+import { revealOnScroll } from "../utils/revealOnScroll";
 
 interface TechCategoryProps {
     category: string;
@@ -10,7 +11,10 @@ export default function TechCategory({
     technologies,
 }: TechCategoryProps) {
     return (
-        <div className="rounded-[28px] border border-line bg-card p-8 transition-transform duration-300 hover:-translate-y-1">
+        <div
+            ref={revealOnScroll}
+            className="rounded-[28px] border border-line bg-card p-8 transition-transform duration-300 hover:-translate-y-1"
+        >
             <h3 className="mb-6 text-xl font-semibold">{category}</h3>
 
             <div className="flex flex-wrap gap-3">

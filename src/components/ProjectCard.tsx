@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../types/project";
 import Tag from "./Tag";
+import { revealOnScroll } from "../utils/revealOnScroll";
 
 const kindBadges: Record<
     Project["kind"],
@@ -40,6 +41,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
     return (
         <article
+            ref={revealOnScroll}
             className={clsx(
                 "group overflow-hidden rounded-[28px] border bg-card transition-transform duration-300 hover:-translate-y-2",
                 featured ? "border-primary/30 lg:col-span-2" : "border-line",

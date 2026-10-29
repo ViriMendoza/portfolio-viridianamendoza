@@ -2,22 +2,6 @@ import type { Project } from "../types/project";
 
 export const projects: Project[] = [
     {
-        title: "AI Accessibility Assistant",
-        category: "AI / Accessibility",
-        overview:
-            "An AI-powered application designed to help developers identify, understand and address accessibility issues through contextual recommendations.",
-        image: "/projects/ai-accessibility.png",
-        technologies: ["React", "TypeScript", "AWS", "LLMs", "RAG"],
-        metrics: [
-            "Accessibility-focused workflow",
-            "Contextual AI recommendations",
-            "Cloud-based architecture",
-        ],
-        kind: "open-source",
-        featured: true,
-    },
-
-    {
         title: "AWS Cloud Infrastructure & Web Deployment",
         category: "Cloud / Infrastructure",
         overview:
@@ -54,17 +38,36 @@ export const projects: Project[] = [
     },
 
     {
-        title: "Project Three",
-        category: "Frontend / Performance",
+        title: "GuitarLA – Guitar Store",
+        category: "Frontend / E-commerce",
         overview:
-            "A frontend experience focused on accessibility, performance optimization and delivering a fast user experience across devices.",
-        image: "/projects/project-three.png",
-        technologies: ["JavaScript", "HTML", "CSS", "Lighthouse"],
-        metrics: [
-            "Performance optimization",
-            "Accessibility improvements",
-            "Responsive experience",
+            "An online guitar store with a shopping cart built in React and TypeScript: customers add guitars, adjust quantities and see the total update instantly, and the cart persists between visits.",
+        image: "/projects/guitarla.jpg",
+        imageAlt:
+            "GuitarLA store home page showing the 'Nuestra Colección' catalog of guitars, each with its price and an 'Add to cart' button.",
+        technologies: [
+            "React",
+            "TypeScript",
+            "useReducer",
+            "Vite",
+            "CSS",
+            "Netlify",
         ],
-        kind: "client",
+        metrics: [
+            "Cart state managed with useReducer and typed actions",
+            "Cart persisted in localStorage between visits",
+            "Quantity limits and live total calculation",
+        ],
+        kind: "personal",
+        liveUrl: "https://tienda-guitarrasla.netlify.app/",
+        challenge:
+            "Build a shopping cart that stays consistent as customers add, remove and update products, without losing their selection when they leave and come back.",
+        solution:
+            "I centralized the cart logic in a reducer with typed actions for adding, removing, increasing, decreasing and clearing items, so every change goes through one predictable place. Quantities are limited to between 1 and 5 per guitar, the total is derived from the cart state instead of being stored separately, and the cart is synced to localStorage so it is restored on the next visit. The app is built with Vite and deployed on Netlify.",
+        results: [
+            "Predictable cart behavior: every update goes through a single typed reducer",
+            "The cart survives page reloads and return visits",
+            "A live, deployed store that anyone can try",
+        ],
     },
 ];

@@ -1,6 +1,7 @@
 import { ArrowUpRight, X } from "lucide-react";
 import { useEffect, useRef, type ReactNode } from "react";
 import type { Project } from "../types/project";
+import ButtonLink from "./ButtonLink";
 import Tag from "./Tag";
 
 interface CaseStudyModalProps {
@@ -84,6 +85,15 @@ export default function CaseStudyModal({
                         <p className="mt-6 text-lg leading-relaxed text-muted">
                             {project.overview}
                         </p>
+
+                        {project.liveUrl && (
+                            <div className="mt-8">
+                                <ButtonLink href={project.liveUrl} external>
+                                    Visit live site
+                                    <ArrowUpRight size={18} className="ml-2" />
+                                </ButtonLink>
+                            </div>
+                        )}
 
                         {project.challenge && (
                             <CaseStudySection title="Challenge">

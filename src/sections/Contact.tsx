@@ -9,7 +9,7 @@ export default function Contact() {
         <Section
             id="contact"
             variant="hero"
-            className="py-40"
+            className="py-20 md:py-40"
             containerClassName="max-w-4xl text-center"
         >
             <Eyebrow>Contact</Eyebrow>
@@ -23,7 +23,7 @@ export default function Contact() {
                 opportunities across US and LATAM.
             </p>
 
-            <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4 md:mt-12">
                 {contactLinks.map(({ label, ...link }) => (
                     <ButtonLink key={label} {...link}>
                         {label}
@@ -31,7 +31,7 @@ export default function Contact() {
                 ))}
             </div>
 
-            <div className="mt-16 flex flex-wrap justify-center gap-3">
+            <div className="mt-10 flex flex-wrap justify-center gap-3 md:mt-16">
                 {highlights.map((item) => (
                     <Tag key={item}>{item}</Tag>
                 ))}

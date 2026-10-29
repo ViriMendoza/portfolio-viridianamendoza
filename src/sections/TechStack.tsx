@@ -11,7 +11,7 @@ const expandingStack = techStack.filter((g) => g.group === "expanding");
 
 export default function TechStack() {
     return (
-        <Section id="tech-stack" className="py-32">
+        <Section id="tech-stack" className="py-16 md:py-32">
             <SectionHeader
                 eyebrow="Tech Stack"
                 title="A modern frontend stack, supported by cloud and emerging AI technologies."
@@ -45,7 +45,7 @@ interface StackGroupProps {
 
 function StackGroup({ eyebrow, title, groups, className }: StackGroupProps) {
     return (
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20">
             <div className="mb-8">
                 <span className="text-xs font-medium tracking-[0.25em] text-muted uppercase">
                     {eyebrow}

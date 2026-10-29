@@ -1,5 +1,6 @@
 import { coreSkills, techStack } from "../data/techStack";
 import Tag from "./Tag";
+import { revealOnScroll } from "../utils/revealOnScroll";
 
 const primaryStack = techStack
     .filter((group) => group.group === "primary")
@@ -7,7 +8,10 @@ const primaryStack = techStack
 
 export default function PrimaryFocus() {
     return (
-        <div className="relative mt-12 overflow-hidden rounded-4xl border border-primary/35 bg-card p-8 md:p-10">
+        <div
+            ref={revealOnScroll}
+            className="relative mt-12 overflow-hidden rounded-4xl border border-primary/35 bg-card p-8 md:p-10"
+        >
             <div
                 aria-hidden="true"
                 className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,var(--primary),transparent)] opacity-20 blur-[110px]"

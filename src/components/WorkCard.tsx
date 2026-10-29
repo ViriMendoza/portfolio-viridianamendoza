@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { revealOnScroll } from "../utils/revealOnScroll";
 
 interface WorkCardProps {
     icon: LucideIcon;
@@ -12,7 +13,10 @@ export default function WorkCard({
     description,
 }: WorkCardProps) {
     return (
-        <div className="group relative overflow-hidden rounded-3xl border border-line bg-card p-8 transition-transform duration-300 hover:-translate-y-2">
+        <div
+            ref={revealOnScroll}
+            className="group relative overflow-hidden rounded-3xl border border-line bg-card p-8 transition-transform duration-300 hover:-translate-y-2"
+        >
             <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(196,60,107,.08),transparent_70%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"

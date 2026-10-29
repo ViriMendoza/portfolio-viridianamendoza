@@ -12,14 +12,14 @@ export default function Projects() {
     );
 
     return (
-        <Section id="projects" className="py-32">
+        <Section id="projects" className="py-16 md:py-32">
             <SectionHeader
                 eyebrow="Featured Projects"
                 title="Selected work focused on accessibility, performance and user experience."
                 description="A selection of projects exploring modern frontend architecture, accessible experiences and emerging technologies."
             />
 
-            <div className="mt-20 grid gap-8 lg:grid-cols-2">
+            <div className="mt-10 grid gap-8 md:mt-20 lg:grid-cols-2">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.title}
@@ -29,7 +29,7 @@ export default function Projects() {
                 ))}
             </div>
 
-            <p className="mt-16 text-center text-lg text-muted">
+            <p className="mt-10 text-center text-lg text-muted md:mt-16">
                 Additional client work available upon request due to
                 confidentiality agreements.
             </p>
